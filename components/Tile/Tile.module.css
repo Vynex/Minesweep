@@ -1,0 +1,57 @@
+.tile {
+   margin: 0.3rem;
+   height: 3rem;
+   width: 3rem;
+
+
+   user-select: none;
+
+   font-size: 1.3rem;
+   font-weight: 800;
+
+   border-radius: 10px;
+   background-color: #db6a40;
+
+   box-shadow: -2px -1px 5px #e37d4d;
+   text-shadow: 2px 4px 2px rgba(0, 2, 0, 0.5);
+
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.tile:hover {
+   background-color: #d86034;
+   box-shadow: -2px -1px 5px #e0733f;
+}
+
+.active,
+.active:hover {
+   background-color: #1d1916;
+   box-shadow: inset 2px 1px 5px #0d0d09,
+      inset -2px -1px 5px #2e2b26;
+}
+
+.revealed,
+.revealed:hover {
+   background-color: #1d1916;
+   box-shadow: inset 2px 3px 5px #0d0d09,
+      inset -3px -2px 5px #2e2b26;
+   color: white;
+}
+
+
+.exploded,
+.exploded:hover {
+   background-color: #8C0000;
+   box-shadow: inset 2px 3px 5px #48040e,
+      inset -3px -2px 5px #E40017;
+}
+
+
+.incorrect,
+.incorrect:hover {
+   background-color: #F05454;
+   box-shadow: -2px -1px 5px #f37676;
+}
