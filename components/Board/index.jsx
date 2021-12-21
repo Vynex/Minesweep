@@ -17,10 +17,6 @@ export default function Board({
 }) {
 	const [pressedTile, setPressedTile] = useState(null);
 
-	useState(() => {
-		setBoard(generateBoard(difficulty));
-	}, []);
-
 	const handleMouseDown = (e, tile) => {
 		e.preventDefault();
 
@@ -70,9 +66,8 @@ export default function Board({
 		if (e.button === 0) {
 			activateTile(newBoard, tile);
 		}
-		if (e.button === 2) {
-			flagTile(newBoard, tile);
-		}
+		// if (e.button === 2) {
+		// }
 
 		setPressedTile(null);
 	};
@@ -89,6 +84,13 @@ export default function Board({
 		}
 
 		setBoard(newBoard);
+	};
+
+	const handleContext = (e, tile) => {
+		e.preventDefault();
+
+		let newBoard = [...board];
+		flagTile(newBoard, tile);
 	};
 
 	const revealZeroes = (newBoard, tile) => {
@@ -232,6 +234,7 @@ export default function Board({
 							handleMouseDown={handleMouseDown}
 							handleMouseUp={handleMouseUp}
 							handleMouseLeave={handleMouseLeave}
+							handleContext={handleContext}
 							key={y}
 						/>
 					))}

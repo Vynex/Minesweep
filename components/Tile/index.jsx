@@ -18,13 +18,10 @@ const Tile = ({
 	handleMouseDown,
 	handleMouseUp,
 	handleMouseLeave,
+	handleContext
 }) => {
 	const handleClick = () => {
 		console.log(pos, tile);
-	};
-
-	const handleContext = (e) => {
-		e.preventDefault();
 	};
 
 	return (
@@ -41,7 +38,7 @@ const Tile = ({
 						: '',
 			}}
 			onClick={handleClick}
-			onContextMenu={(e) => handleContext(e)}
+			onContextMenu={(e) => handleContext(e, pos)}
 			onMouseDown={(e) => handleMouseDown(e, pos)}
 			onMouseUp={(e) => handleMouseUp(e, pos)}
 			onMouseLeave={handleMouseLeave}

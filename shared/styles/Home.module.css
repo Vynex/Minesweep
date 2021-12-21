@@ -4,7 +4,7 @@
 }
 
 .container {
-  padding: 0 10rem;
+  /* padding: 0 10rem; */
 
   display: flex;
   flex-direction: column;
@@ -61,6 +61,10 @@
 
 .display:first-child {
   min-width: 11rem;
+}
+
+.display:last-child {
+  min-width: 8rem;
 }
 
 .display span {

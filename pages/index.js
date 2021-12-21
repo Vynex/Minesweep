@@ -1,11 +1,12 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Board from '../components/Board';
 
 import { BiBomb, BiCog, BiTimer } from 'react-icons/bi';
-import styles from '../shared/styles/Home.module.css';
-import Image from 'next/image';
 import generateBoard from '../shared/lib/generateBoard';
+
+import styles from '../shared/styles/Home.module.css';
 
 const defaultDifficulty = { rows: 9, cols: 9, mines: 10 };
 const defaultGameState = { isLive: false, isWon: false, isLost: false };
@@ -19,6 +20,10 @@ export default function Home() {
 	const [face, setFace] = useState('/assets/gameLive.svg');
 
 	const [board, setBoard] = useState(null);
+
+	useState(() => {
+		setBoard(generateBoard(difficulty));
+	}, []);
 
 	useEffect(() => {
 		let timer;
@@ -45,6 +50,7 @@ export default function Home() {
 		setFace('/assets/gameLive.svg');
 		setGameState(defaultGameState);
 		setTime(0);
+		setFlags(0);
 		setBoard(generateBoard(difficulty));
 	};
 
