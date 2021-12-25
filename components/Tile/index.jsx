@@ -5,7 +5,7 @@ const tileColors = [
 	'#22577E',
 	'#116530',
 	'#AC242E',
-	'#344CB7',
+	'#676FA3',
 	'#950101',
 	'#3E8E7E',
 	'#9D9D9D',
@@ -18,18 +18,22 @@ const Tile = ({
 	handleMouseDown,
 	handleMouseUp,
 	handleMouseLeave,
-	handleContext
+	handleContext,
+	difficulty,
 }) => {
 	const handleClick = () => {
 		console.log(pos, tile);
 	};
 
+	const renderBomb = () => <span style={{ fontWeight: '500' }}>💣</span>;
+	const renderFlag = () => <span style={{ fontWeight: '500' }}>🚩</span>;
+
 	return (
 		<div
-			className={`${styles.tile} ${tile.isActive ? styles.active : ''} ${
-				tile.isRevealed ? styles.revealed : ''
-			} ${tile.hasExploded ? styles.exploded : ''} ${
-				tile.isIncorrect ? styles.incorrect : ''
+			className={`${styles.tile} ${tile.isActive && styles.active} ${
+				tile.isRevealed && styles.revealed
+			} ${tile.hasExploded && styles.exploded} ${
+				tile.isIncorrect && styles.incorrect
 			}`}
 			style={{
 				color:
@@ -45,12 +49,12 @@ const Tile = ({
 		>
 			{tile.isRevealed
 				? tile.hasMine
-					? '💣'
+					? renderBomb()
 					: tile.minesAround === 0
 					? ''
 					: tile.minesAround
 				: tile.isFlagged
-				? '🚩'
+				? renderFlag()
 				: ''}
 		</div>
 	);

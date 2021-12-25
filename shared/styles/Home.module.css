@@ -37,6 +37,8 @@
 
   display: flex;
   align-items: center;
+
+  cursor: pointer;
 }
 
 .display {
@@ -94,6 +96,9 @@
 
   color: #C8C6C6;
   border-top: 1px solid #9D9D9D;
+
+  font-family: 'Poppins';
+  font-weight: 200;
 
   display: flex;
   flex: 1;

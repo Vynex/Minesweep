@@ -1,0 +1,33 @@
+.buttonGroup {
+   margin: 0.5rem 0;
+   padding: 0.4rem;
+
+   background-color: #151617;
+   border-radius: 5px;
+
+   display: flex;
+}
+
+.button {
+   flex: 1;
+   padding: 0.3rem 0;
+
+   color: #fff;
+   background-color: #151617;
+   font-family: 'Poppins';
+   font-weight: 300;
+
+   outline: none;
+   border: none;
+   border-radius: 5px;
+
+   cursor: pointer;
+}
+
+.buttonActive {
+   background-color: #232527;
+   border-radius: 5px;
+
+   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px,
+      inset #414549 0px 1px;
+}

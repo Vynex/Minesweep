@@ -7,6 +7,7 @@ import { BiBomb, BiCog, BiTimer } from 'react-icons/bi';
 import generateBoard from '../shared/lib/generateBoard';
 
 import styles from '../shared/styles/Home.module.css';
+import Settings from '../components/Settings';
 
 const defaultDifficulty = { rows: 9, cols: 9, mines: 10 };
 const defaultGameState = { isLive: false, isWon: false, isLost: false };
@@ -20,6 +21,8 @@ export default function Home() {
 	const [face, setFace] = useState('/assets/gameLive.svg');
 
 	const [board, setBoard] = useState(null);
+
+	const [settingsModal, setSettingsModal] = useState(false);
 
 	useState(() => {
 		setBoard(generateBoard(difficulty));
@@ -46,6 +49,11 @@ export default function Home() {
 		}
 	}, [gameState, time]);
 
+	const handleDifficultyChange = (newDifficulty) => {
+		setDifficulty(newDifficulty);
+		handleGameReset();
+	};
+
 	const handleGameReset = () => {
 		setFace('/assets/gameLive.svg');
 		setGameState(defaultGameState);
@@ -68,7 +76,10 @@ export default function Home() {
 			<div className={styles.container}>
 				<header className={styles.header}>
 					<div className={styles.heading}>Minesweep</div>
-					<div className={styles.button}>
+					<div
+						className={styles.button}
+						onClick={() => setSettingsModal((prevState) => !prevState)}
+					>
 						<BiCog />
 					</div>
 				</header>
@@ -91,6 +102,7 @@ export default function Home() {
 							height={32}
 							width={32}
 							layout="intrinsic"
+							draggable="false"
 						/>
 					</div>
 
@@ -123,6 +135,14 @@ export default function Home() {
 						Made with ❤️ by Kushagra
 					</a>
 				</footer>
+
+				{settingsModal && (
+					<Settings
+						handleClose={() => setSettingsModal(false)}
+						difficulty={difficulty}
+						setDifficulty={handleDifficultyChange}
+					/>
+				)}
 			</div>
 		</div>
 	);

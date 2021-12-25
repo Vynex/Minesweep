@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Tile from '../Tile';
 
 import generateBoard from '../../shared/lib/generateBoard';
+import getTilesAround from '../../shared/lib/getTilesAround';
 
 import styles from './Board.module.css';
-import getTilesAround from '../../shared/lib/getTilesAround';
 
 export default function Board({
 	board,
@@ -48,9 +48,9 @@ export default function Board({
 	const handleMouseUp = (e, tile) => {
 		e.preventDefault();
 
-		setFace('/assets/gameLive.svg');
-
 		if (gameState.isWon || gameState.isLost) return;
+
+		setFace('/assets/gameLive.svg');
 
 		let newBoard = [...board];
 
@@ -66,14 +66,14 @@ export default function Board({
 		if (e.button === 0) {
 			activateTile(newBoard, tile);
 		}
-		// if (e.button === 2) {
-		// }
 
 		setPressedTile(null);
 	};
 
 	const handleMouseLeave = () => {
 		if (gameState.isWon || gameState.isLost) return;
+
+		setFace('/assets/gameLive.svg');
 
 		let newBoard = [...board];
 
@@ -235,6 +235,7 @@ export default function Board({
 							handleMouseUp={handleMouseUp}
 							handleMouseLeave={handleMouseLeave}
 							handleContext={handleContext}
+							difficulty={difficulty}
 							key={y}
 						/>
 					))}

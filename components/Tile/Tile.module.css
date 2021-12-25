@@ -1,20 +1,21 @@
 .tile {
    margin: 0.3rem;
-   height: 3rem;
-   width: 3rem;
 
-
+   height: 2.5rem;
+   width: 2.5rem;
    user-select: none;
 
-   font-size: 1.3rem;
+   font-size: 1rem;
    font-weight: 800;
 
    border-radius: 10px;
    background-color: #db6a40;
 
+   background: rgb(229, 129, 80);
+   background: linear-gradient(135deg, rgba(229, 129, 80, 1) 0%, rgba(210, 89, 50, 1) 50%);
+
    box-shadow: -2px -1px 5px #e37d4d;
    text-shadow: 2px 4px 2px rgba(0, 2, 0, 0.5);
-
 
    display: flex;
    justify-content: center;
@@ -28,14 +29,19 @@
 
 .active,
 .active:hover {
-   background-color: #1d1916;
+   background: #1d1916;
+
    box-shadow: inset 2px 1px 5px #0d0d09,
       inset -2px -1px 5px #2e2b26;
 }
 
 .revealed,
 .revealed:hover {
-   background-color: #1d1916;
+   /* background: #1d1916; */
+
+   background: rgb(30, 29, 24);
+   background: linear-gradient(135deg, rgba(30, 29, 24, 1) 0%, rgba(26, 23, 19, 1) 50%);
+
    box-shadow: inset 2px 3px 5px #0d0d09,
       inset -3px -2px 5px #2e2b26;
    color: white;
@@ -44,7 +50,8 @@
 
 .exploded,
 .exploded:hover {
-   background-color: #8C0000;
+   background: #8C0000;
+
    box-shadow: inset 2px 3px 5px #48040e,
       inset -3px -2px 5px #E40017;
 }
@@ -52,6 +59,9 @@
 
 .incorrect,
 .incorrect:hover {
-   background-color: #F05454;
+   background: #F05454;
    box-shadow: -2px -1px 5px #f37676;
+
+   background: rgb(243, 118, 118);
+   background: linear-gradient(135deg, rgba(243, 118, 118, 1) 0%, rgba(240, 84, 84, 1) 50%);
 }
